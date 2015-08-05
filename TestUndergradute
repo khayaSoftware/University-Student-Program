@@ -1,0 +1,30 @@
+/*
+ * This class was designed to test the base and child class, for a specific scenario.
+ */
+
+package student;
+
+/**
+ *
+ * @author X00089102 Khaya Khumalo
+ */
+public class TestUndergraduate {
+    public static void main(String [] args){
+        Undergraduate perdita = new Undergraduate ("Perdita Stevens", 2333, 4, 3);
+        
+        //UPDATE RESULTS
+        perdita.setResults(1,85);
+        perdita.setResults(2,80);
+        perdita.setResults(3,70);
+        perdita.setResults(4,90);
+        
+        //METHOD CALLS
+        perdita.calcGrades();
+        perdita.calcAverage();
+        perdita.print();
+        perdita.setYear(4);
+        perdita.print();
+        
+    }
+    
+}
