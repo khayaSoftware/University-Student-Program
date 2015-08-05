@@ -1,0 +1,76 @@
+/*
+ * This parent class stores the information and methods of a basic student.
+ */
+
+package student;
+
+/**
+ *
+ * @author X00089102 Khaya Khumalo
+ */
+//BASE CLASS
+public class Student {
+
+   protected String name;
+   protected int studNum;
+   protected int results [];
+   protected char grades [];
+   protected double average;
+   
+   //CONSTRUCTOR
+   public Student (String nM, int num, int exams){
+    name = nM;
+    studNum = num;
+    results = new int [exams];
+    grades = new char [exams];
+   }
+   
+   //METHODS ARE BELOW FROM HERE
+   public void setResults(int eIn, int res){
+       
+       for(int i = 0; i < results.length; i++){
+         if(res >= 0 && res <= 100){
+             results[eIn-1]=res;
+         }
+         else{
+             results[eIn-1] = 0;
+         }
+       }
+   }
+   
+   public void calcGrades(){
+        
+        for (int i = 0; i < grades.length;i++){
+            if (results[i]<=100 && results[i] >= 80){
+                grades[i]='A';
+            }
+            else if(results[i]<= 79 && results[i] >= 60){
+                grades[i]='B';
+            }
+            else if(results[i] <= 59 && results[i] >= 40){
+                grades[i]='C';
+            }
+            else if(results[i] < 40){
+                grades[i]='F';
+            }
+            
+        }
+    }
+   public void calcAverage(){
+        double sum=0;
+        for(int i = 0; i < results.length;i++){
+            sum+= results[i];
+        }
+        average = sum/results.length;
+        
+    }
+   public void print(){
+        System.out.println("Student name: "+name);
+        System.out.println("Student number: "+studNum);
+        for (int i = 0; i < results.length;i++){
+            System.out.println("Result number:\t"+(i+1)+"\tResult:\t"+results[i]+"\tGrade:\t"+grades[i] );
+        }
+        System.out.printf("Average:\t%.2f%n" ,average);
+    }
+    
+}
