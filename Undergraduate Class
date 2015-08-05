@@ -1,0 +1,39 @@
+/*
+ * This class extends the base class, with methods that overides its parent class methods
+ */
+
+package student;
+
+/**
+ *
+ * @author X00089102 Khaya Khumalo
+ */
+//Subclass
+public class Undergraduate extends Student{
+    private int year;
+    
+    //Constructor
+    public Undergraduate(String nM, int studID, int noExams, int yr ){
+        super(nM, studID, noExams);
+        year = yr;
+        
+    }
+    
+    //METHODS ARE BELOW FROM HERE
+    public void setYear(int amount){
+        year = amount;
+    }
+    
+    public void calcAverage(){
+        super.calcAverage();
+        if(year == 4 && average < 80){
+            average = average + 5.0;
+        }
+    }
+    
+    public void print(){
+        super.print();
+        System.out.println("Year:\t"+year);
+                
+    }
+}
